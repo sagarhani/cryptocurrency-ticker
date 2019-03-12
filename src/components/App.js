@@ -1,9 +1,13 @@
 import React from 'react';
+import Ticker from './Ticker';
 
 class App extends React.Component {
     render() {
         return (
-            <div>App Component</div>
+            <div>
+                <Ticker />
+            </div>
+
         )
     }
 };
