@@ -1,4 +1,5 @@
 import React from 'react';
+import coinMarketCap from '../apis/coinMarketCap';
 
 class Ticker extends React.Component {
 
@@ -23,6 +24,11 @@ class Ticker extends React.Component {
         };
     }
 
+    fetchData = async () => {
+        const response = await coinMarketCap.get();
+        console.log(response.data);
+    };
+
     renderTicker() {
         let tickers = this.state.data.map(currency => 
             <li key={currency.id}>
@@ -38,6 +44,7 @@ class Ticker extends React.Component {
     }
 
     render() {
+        this.fetchData();
         return (
             <div>
                 { this.renderTicker() }
